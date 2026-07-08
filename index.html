@@ -142,12 +142,10 @@
     <h1>Všetko najlepšie<br>k narodeninám<br>ŠIMON! 🥳</h1>
 
     <div class="frame-outer">
-      <label class="frame-inner" id="frame" for="fileInput">
+      <div class="frame-inner" id="frame">
         <img src="simon.jpeg" alt="Šimon">
-      </label>
+      </div>
     </div>
-    <input type="file" id="fileInput" accept="image/*">
-    <div><button class="btn" onclick="document.getElementById('fileInput').click()">📤 Vymeniť fotku</button></div>
 
     <div class="sevens">🃏 7 7 7 7 🃏</div>
     <div class="cap">— štyri sedmičky pre šťastie —</div>
@@ -179,23 +177,5 @@
     <div class="foot">✦ vyrobené v štýle legendárnych „FB Anna" obrázkov ✦ ©️ 2010-ish glitter edition ✦</div>
   </div>
 
-<script>
-  const fi = document.getElementById('fileInput');
-  const frame = document.getElementById('frame');
-  fi.addEventListener('change', e => {
-    const f = e.target.files[0];
-    if(!f) return;
-    const r = new FileReader();
-    r.onload = ev => { frame.innerHTML = '<img src="'+ev.target.result+'" alt="Šimon">'; };
-    r.readAsDataURL(f);
-  });
-  // drag & drop
-  ['dragover','drop'].forEach(t=>document.body.addEventListener(t,e=>e.preventDefault()));
-  document.body.addEventListener('drop', e=>{
-    const f=[...e.dataTransfer.files].find(x=>x.type.startsWith('image/'));
-    if(!f)return; const r=new FileReader();
-    r.onload=ev=>frame.innerHTML='<img src="'+ev.target.result+'">'; r.readAsDataURL(f);
-  });
-</script>
 </body>
 </html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Všetko najlepšie ŠIMON! 🎉</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body {
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+    background:
+      radial-gradient(circle at 20% 20%, #2a0a4a 0%, transparent 40%),
+      radial-gradient(circle at 80% 30%, #06304a 0%, transparent 45%),
+      radial-gradient(circle at 50% 90%, #4a0a2a 0%, transparent 45%),
+      #05010f;
+    color:#fff;
+    overflow-x:hidden;
+    text-align:center;
+    padding:20px 10px 60px;
+    position:relative;
+  }
+  /* Hviezdne pozadie */
+  .stars, .stars2 {
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 25px 30px, #fff, transparent),
+      radial-gradient(1px 1px at 120px 80px, #ffd700, transparent),
+      radial-gradient(2px 2px at 200px 150px, #fff, transparent),
+      radial-gradient(1px 1px at 300px 60px, #8ff, transparent),
+      radial-gradient(1.5px 1.5px at 400px 200px, #ffd700, transparent),
+      radial-gradient(1px 1px at 500px 120px, #fff, transparent),
+      radial-gradient(2px 2px at 80px 220px, #f9f, transparent);
+    background-repeat:repeat;
+    background-size:550px 300px;
+    animation:twinkle 3s infinite alternate;
+  }
+  .stars2 { background-size:400px 240px; animation:twinkle 2s infinite alternate-reverse; opacity:.6; }
+  @keyframes twinkle { from{opacity:.3;} to{opacity:1;} }
+
+  .wrap { position:relative; z-index:2; max-width:860px; margin:0 auto; }
+
+  /* Zlatý nadpis */
+  h1 {
+    font-size: clamp(28px, 6vw, 60px);
+    font-weight:900;
+    line-height:1.1;
+    margin:10px 0 6px;
+    background:linear-gradient(180deg,#fff6c0 0%,#ffd700 35%,#b8860b 55%,#ffec8b 75%,#fff 100%);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(2px 2px 0 #7a5c00) drop-shadow(0 0 12px rgba(255,215,0,.8));
+    text-transform:uppercase;
+    animation:pulse 1.2s infinite alternate;
+    letter-spacing:1px;
+  }
+  @keyframes pulse { from{transform:scale(1);} to{transform:scale(1.04) rotate(-.5deg);} }
+
+  .sub { font-size:clamp(16px,3vw,26px); color:#ff5ca8; text-shadow:0 0 8px #ff5ca8, 1px 1px 0 #600; margin-bottom:14px; animation:blink 1s steps(2) infinite; }
+  @keyframes blink { 50%{opacity:.55;} }
+
+  /* Rám na fotku */
+  .frame-outer {
+    display:inline-block;
+    margin:10px auto 18px;
+    padding:14px;
+    border-radius:50%;
+    background:conic-gradient(#ffd700,#fff6c0,#b8860b,#ffec8b,#ffd700,#fff,#ffd700);
+    box-shadow:0 0 30px 8px rgba(255,215,0,.7), inset 0 0 20px rgba(255,255,255,.5);
+    animation:spin 6s linear infinite;
+  }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  .frame-inner {
+    width:230px; height:230px; border-radius:50%;
+    background:#100a20;
+    border:5px solid #fff;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; position:relative;
+    animation:spin-rev 6s linear infinite;
+  }
+  @keyframes spin-rev { to{transform:rotate(-360deg);} }
+  .frame-inner img { width:100%; height:100%; object-fit:cover; }
+  .frame-inner .ph { font-size:14px; color:#ffd700; padding:14px; }
+  .frame-inner .ph span { font-size:40px; display:block; margin-bottom:6px; }
+
+  /* Ikony záľub */
+  .icons { display:flex; flex-wrap:wrap; justify-content:center; gap:6px 14px; font-size:clamp(30px,7vw,54px); margin:6px 0 4px; }
+  .icons span { display:inline-block; animation:bob 2s infinite ease-in-out; filter:drop-shadow(0 0 6px rgba(255,215,0,.6)); }
+  .icons span:nth-child(2n){ animation-delay:.4s; }
+  .icons span:nth-child(3n){ animation-delay:.8s; }
+  @keyframes bob { 50%{transform:translateY(-10px) rotate(6deg);} }
+  .cap { font-size:12px; color:#8ff; letter-spacing:.5px; margin-bottom:16px; }
+
+  /* Vtipné tabuľky */
+  .signs { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:18px 0; }
+  .sign {
+    background:linear-gradient(135deg,#ff2e8b,#7a1fff);
+    border:3px double #fff;
+    border-radius:8px;
+    padding:8px 14px;
+    font-weight:bold;
+    font-size:clamp(12px,2.6vw,16px);
+    text-shadow:1px 1px 2px #000;
+    box-shadow:0 0 12px rgba(255,46,139,.6);
+    transform:rotate(-2deg);
+  }
+  .sign:nth-child(2n){ transform:rotate(2deg); background:linear-gradient(135deg,#00c6ff,#0072ff); box-shadow:0 0 12px rgba(0,198,255,.6);}
+  .sign:nth-child(3n){ transform:rotate(-1deg); background:linear-gradient(135deg,#11d15a,#0a8a3a);}
+
+  /* Prianie */
+  .wish {
+    background:rgba(20,8,40,.75);
+    border:2px solid #ffd700;
+    border-radius:14px;
+    padding:20px 22px;
+    margin:20px auto;
+    max-width:640px;
+    font-size:clamp(14px,3vw,19px);
+    line-height:1.6;
+    box-shadow:0 0 24px rgba(255,215,0,.4), inset 0 0 20px rgba(255,255,255,.06);
+    color:#fff;
+  }
+  .wish b { color:#ffd700; text-shadow:0 0 6px #ffd700; }
+
+  .sevens { font-size:clamp(30px,8vw,56px); letter-spacing:6px; color:#fff; text-shadow:0 0 10px #ff2e8b; margin:6px 0 2px; }
+  .marquee-wrap { overflow:hidden; white-space:nowrap; margin:14px 0; border-top:1px dashed #ffd70088; border-bottom:1px dashed #ffd70088; padding:6px 0; }
+  .marquee { display:inline-block; padding-left:100%; animation:scroll 14s linear infinite; color:#ffd700; font-weight:bold; font-size:16px; }
+  @keyframes scroll { to{transform:translateX(-100%);} }
+
+  .foot { font-size:11px; color:#8877aa; margin-top:26px; }
+  .btn { margin-top:8px; background:#ffd700; color:#3a2a00; border:none; padding:8px 16px; border-radius:20px; font-family:inherit; font-weight:bold; cursor:pointer; box-shadow:0 3px 0 #b8860b; }
+  input[type=file]{ display:none; }
+</style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <div class="wrap">
+    <div class="sub">🎂 ~*~ špeciálne vydanie ~*~ 🎂</div>
+    <h1>Všetko najlepšie<br>k narodeninám<br>ŠIMON! 🥳</h1>
+
+    <div class="frame-outer">
+      <label class="frame-inner" id="frame" for="fileInput">
+        <div class="ph"><span>📸</span>Klikni sem a vlož<br>Šimonovu fotku</div>
+      </label>
+    </div>
+    <input type="file" id="fileInput" accept="image/*">
+    <div><button class="btn" onclick="document.getElementById('fileInput').click()">📤 Nahrať fotku Šimona</button></div>
+
+    <div class="sevens">🃏 7 7 7 7 🃏</div>
+    <div class="cap">— štyri sedmičky pre šťastie —</div>
+
+    <div class="icons">
+      <span>🥊</span><span>🚲</span><span>🚴</span><span>💻</span><span>☕</span><span>✨</span><span>⭐</span><span>💎</span>
+    </div>
+    <div class="cap">BOX · BROMPTON · GRAVEL · MACBOOK · KÓD · KÁVA</div>
+
+    <div class="marquee-wrap"><span class="marquee">✨✨✨ CODE. COFFEE. COMMIT. REPEAT. ✨✨✨ BOX. BIKE. BUILD. REPEAT. ✨✨✨ 777 ✨✨✨ VŠETKO NAJLEPŠIE ŠIMON! ✨✨✨</span></div>
+
+    <div class="signs">
+      <div class="sign">💻 CODE. COFFEE. COMMIT. REPEAT.</div>
+      <div class="sign">🐛 Debuguje život rovnako dobre ako kód.</div>
+      <div class="sign">🥊 BOX. BIKE. BUILD. REPEAT.</div>
+    </div>
+
+    <div class="wish">
+      Nech Ti každý <b>commit</b> prejde na prvýkrát, každý <b>úder</b> trafí cieľ,
+      každý <b>kilometer</b> prinesie radosť, <b>sedmičky</b> nech Ti nosia šťastie
+      a nech Ťa život baví rovnako ako nové projekty.<br><br>
+      <b>Všetko najlepšie, Šimon! 🎉🥳🎂</b>
+    </div>
+
+    <div class="icons" style="font-size:34px;">
+      <span>🎈</span><span>🎉</span><span>🎁</span><span>🎊</span><span>🍾</span><span>🎂</span>
+    </div>
+
+    <div class="foot">✦ vyrobené v štýle legendárnych „FB Anna" obrázkov ✦ ©️ 2010-ish glitter edition ✦</div>
+  </div>
+
+<script>
+  const fi = document.getElementById('fileInput');
+  const frame = document.getElementById('frame');
+  fi.addEventListener('change', e => {
+    const f = e.target.files[0];
+    if(!f) return;
+    const r = new FileReader();
+    r.onload = ev => { frame.innerHTML = '<img src="'+ev.target.result+'" alt="Šimon">'; };
+    r.readAsDataURL(f);
+  });
+  // drag & drop
+  ['dragover','drop'].forEach(t=>document.body.addEventListener(t,e=>e.preventDefault()));
+  document.body.addEventListener('drop', e=>{
+    const f=[...e.dataTransfer.files].find(x=>x.type.startsWith('image/'));
+    if(!f)return; const r=new FileReader();
+    r.onload=ev=>frame.innerHTML='<img src="'+ev.target.result+'">'; r.readAsDataURL(f);
+  });
+</script>
+</body>
+</html>
